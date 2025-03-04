@@ -2,7 +2,7 @@
 const gulp = require("gulp");
 const styles = require("./styles");
 const script = require("./script");
-const copy_html = require("./copy_html");
+const merge_html = require("./html");
 const browserSync = require("browser-sync").create();
 
 const serve = () => {
@@ -17,7 +17,7 @@ const serve = () => {
   });
 
   gulp.watch("src/scss/**/*.scss", gulp.series(styles)).on("change", browserSync.reload); // SCSS 파일 변경 시 리로드
-  gulp.watch("src/**/*.html", gulp.series(copy_html)).on("change", browserSync.reload); // HTML 파일 변경 시 리로드
+  gulp.watch("src/*.html", gulp.series(merge_html)).on("change", browserSync.reload); // HTML 파일 변경 시 리로드
   gulp.watch("src/js/**/*.js", gulp.series(script)).on("change", browserSync.reload); // Script 파일 변경 시 리로드
   gulp.watch("dist/**/*.css").on("change", browserSync.reload); // CSS 파일 변경 시 리로드
 };
