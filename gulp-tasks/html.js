@@ -5,7 +5,7 @@ const data = require("gulp-data");
 const swig = require("gulp-swig");
 const fileinclude = require("gulp-file-include");
 
-const menuJsonPath = path.join(__dirname, "../src/data/menu_sample.json"); // JSON 파일 경로
+const menuJsonPath = path.join(__dirname, "../src/data/header_menu.json"); // JSON 파일 경로
 
 function merge_html() {
   const jsonData = JSON.parse(fs.readFileSync(menuJsonPath, "utf8"));
@@ -16,10 +16,10 @@ function merge_html() {
       fileinclude({
         prefix: "@@",
         basepath: "@file",
-        context: { menu: jsonData.menu },
+        context: { header_menu: jsonData },
       })
     )
-    .pipe(data(() => ({ menu: jsonData.menu }))) // ✅ JSON을 menu 변수로 전달
+    .pipe(data(() => ({ header_menu: jsonData }))) // ✅ JSON을 menu 변수로 전달
     .pipe(swig({ defaults: { cache: false } }))
     .pipe(gulp.dest("dist/"));
 }

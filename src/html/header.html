@@ -91,9 +91,16 @@
         </li>
       </ul> -->
       <ul class="nav_depth1">
-        {% if menu %} {% for item in menu %}
+        {% if header_menu %} {% for item in header_menu %}
         <li class="list_depth1">
           <a href="javascript:void(0);" class="nav_link link_depth1">{{ item.depth1 }}</a>
+          {% if item.hasChild %}
+          <ul>
+            {% for child1 in item.children %}
+            <li><a href="/">{{child1.depth2}}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
         </li>
         {% endfor %} {% endif %}
       </ul>
