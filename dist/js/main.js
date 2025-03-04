@@ -1,1 +1,1 @@
-document.addEventListener("DOMContentLoaded",()=>{console.log("test"),console.log("clear")});
+document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".nav_depth1 .list_depth1").forEach((e,t)=>{e.addEventListener("mouseenter",function(){this.classList.add("active")}),e.addEventListener("mouseleave",function(){this.classList.remove("active")})})});
