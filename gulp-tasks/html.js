@@ -4,7 +4,7 @@ const fileinclude = require("gulp-file-include");
 
 const merge_html = () => {
   return gulp
-    .src("src/*.html")
+    .src("src/*.html", "src/**/*.html")
     .pipe(
       fileinclude({
         prefix: "@@",
