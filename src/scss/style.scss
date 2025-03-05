@@ -3,14 +3,3 @@
 @use "./reset.scss";
 
 @use "./header.scss";
-
-body {
-	color: #444;
-
-	p {
-		color: aqua;
-		font-weight: 400;
-		font-size: 20px;
-		font-family: "Noto Sans KR", sans-serif;
-	}
-}
