@@ -128,33 +128,6 @@ nav {
           }
         }
       }
-
-      &.active {
-        .link_depth1 {
-          color: rgba(0, 0, 0, 0.6);
-        }
-
-        .link_depth2 {
-          opacity: 1;
-        }
-
-        .nav_depth2 {
-          height: 428px;
-          background: rgba(255, 255, 255, 0.9);
-        }
-
-        .list_depth3 {
-          transform: translate(0, 0);
-          opacity: 1;
-          transition-duration: 0.36s;
-
-          @for $i from 1 through 7 {
-            &:nth-of-type(#{$i}) {
-              transition-delay: ($i * 100ms);
-            }
-          }
-        }
-      }
     }
 
     &_depth2 {
@@ -172,6 +145,43 @@ nav {
     }
   }
 
+  .has_child {
+    &.active {
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(0, 0, 0, 0.3);
+        mix-blend-mode: multiply;
+        content: "";
+        z-index: -2;
+      }
+
+      .nav_depth2 {
+        height: 428px;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .list_depth3 {
+        transform: translate(0, 0);
+        opacity: 1;
+        transition-duration: 0.36s;
+
+        @for $i from 1 through 7 {
+          &:nth-of-type(#{$i}) {
+            transition-delay: ($i * 100ms);
+          }
+        }
+      }
+
+      .link_depth2 {
+        opacity: 1;
+      }
+    }
+  }
+
   .link {
     &_depth1 {
       display: block;
@@ -179,6 +189,10 @@ nav {
       font-size: 16px;
       line-height: 1;
       text-align: center;
+
+      &:hover {
+        color: rgba(0, 0, 0, 0.6);
+      }
     }
 
     &_depth2 {
@@ -235,5 +249,31 @@ nav {
     max-width: 162px;
     white-space: nowrap;
     overflow: hidden;
+  }
+}
+
+.search_area {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 70px calc(50% - 420px) 0;
+  transform: translateX(-50%);
+  background-color: #fff;
+  z-index: -1;
+
+  .search_top {
+    width: 840px;
+  }
+
+  div {
+    width: 420px;
+  }
+
+  &.active {
+    z-index: 19;
+    background-color: #fff;
   }
 }

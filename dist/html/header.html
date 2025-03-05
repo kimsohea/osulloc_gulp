@@ -11,7 +11,7 @@
     
     <ul class="nav_depth1">
       
-      <li class="list_depth1">
+      <li class="list_depth1 has_child">
         <a href="javascript:void(0);" class="nav_link link_depth1">제품</a>
         
         <ul class="nav_depth2">
@@ -95,12 +95,12 @@
         
       </li>
       
-      <li class="list_depth1">
+      <li class="list_depth1 ">
         <a href="javascript:void(0);" class="nav_link link_depth1">선물추천</a>
         
       </li>
       
-      <li class="list_depth1">
+      <li class="list_depth1 has_child">
         <a href="javascript:void(0);" class="nav_link link_depth1">브랜드</a>
         
         <ul class="nav_depth2">
@@ -129,7 +129,7 @@
         
       </li>
       
-      <li class="list_depth1">
+      <li class="list_depth1 ">
         <a href="javascript:void(0);" class="nav_link link_depth1">단체 및 기업 구매</a>
         
       </li>
@@ -138,10 +138,10 @@
     
   </nav>
   <ul class="nav_utility">
-    <li class="util_icon nav_search">
-      <button type="button" id="btn_open_search" class="btn_open_search">검색 열기</button>
+    <li class="util_icon">
+      <button type="button" class="btn_open_search">검색 열기</button>
     </li>
-    <li class="util_icon nav_cart">
+    <li class="util_icon">
       <a href="javascript:void(0);" class="go_cart"></a>
     </li>
     <li>
@@ -151,4 +151,44 @@
       <a href="javascript:void(0);" class="util_link">로그인</a>
     </li>
   </ul>
+  <section class="search_area">
+    <form name="search" class="search_top">
+      <input type="text" name="search" placeholder="검색어를 입력해주세요." />
+      <input type="submit" value="Submit" />
+    </form>
+    <div class="left">
+      <h3>인기 검색어</h3>
+      <ol>
+         
+        <li><a href="javascript:void(0);">루이보스</a></li>
+        
+        <li><a href="javascript:void(0);">텀블러</a></li>
+        
+        <li><a href="javascript:void(0);">캐모마일</a></li>
+        
+        <li><a href="javascript:void(0);">차의  정원</a></li>
+        
+        <li><a href="javascript:void(0);">말차</a></li>
+        
+        <li><a href="javascript:void(0);">녹차</a></li>
+        
+        <li><a href="javascript:void(0);">히비스커스</a></li>
+        
+        <li><a href="javascript:void(0);">블랙티</a></li>
+        
+        <li><a href="javascript:void(0);">3입</a></li>
+        
+        <li><a href="javascript:void(0);">케이크</a></li>
+        
+      </ol>
+    </div>
+    <div class="right">
+      <h3>최근 검색어</h3>
+      <ol>
+        <li>최근 검색어가 없습니다</li>
+      </ol>
+      <button type="button" class="search_remove"></button>
+    </div>
+  </section>
 </header>
+,,,
