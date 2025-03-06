@@ -1,0 +1,16 @@
+@function icon($iconName) {
+  $iconList: (
+    header_search:
+      "%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='38'%3E%3Cpath fill='none' stroke='%23000' stroke-width='2' d='M16.538 2.305c7.862 0 14.236 6.275 14.236 14.015 0 8.28-6.374 14.015-14.236 14.015-7.863 0-14.236-5.735-14.236-14.015 0-7.74 6.373-14.015 14.236-14.015ZM36.591 34.99l-9.706-9.554'/%3E%3C/svg%3E",
+    header_cart:
+      "%3Csvg xmlns='http://www.w3.org/2000/svg' width='41' height='36'%3E%3Cpath fill='none' stroke='%23000' stroke-width='2' d='M13.492 25.88c1.997 0 3.617 1.567 3.617 3.499 0 1.935-1.62 3.501-3.617 3.501-1.998 0-3.617-1.566-3.617-3.501 0-1.932 1.619-3.499 3.617-3.499ZM31.492 25.88c1.997 0 3.617 1.567 3.617 3.499 0 1.935-1.62 3.501-3.617 3.501-1.998 0-3.617-1.566-3.617-3.501 0-1.932 1.619-3.499 3.617-3.499Z'/%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-width='2' d='M1.999 1.999H7L12.999 25h19L37 7.999H8.999'/%3E%3C/svg%3E",
+    search_cls:
+      "%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-width='2' d='M1.999 1.999 27 27 1.999 1.999ZM27 1.999 1.999 27 27 1.999Z'/%3E%3C/svg%3E",
+    search_btn:
+      "%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='38'%3E%3Cpath fill='none' stroke='%23000' stroke-width='3' d='M16.538 2.305c7.862 0 14.236 6.275 14.236 14.015 0 8.28-6.374 14.015-14.236 14.015-7.863 0-14.236-5.735-14.236-14.015 0-7.74 6.373-14.015 14.236-14.015ZM36.591 34.99l-9.706-9.554'/%3E%3C/svg%3E",
+  );
+
+  $icon: map-get($iconList, $iconName);
+
+  @return url("data:image/svg+xml;charset=utf8,#{$icon}");
+}
