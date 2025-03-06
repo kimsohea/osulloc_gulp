@@ -177,6 +177,7 @@ nav {
         mix-blend-mode: multiply;
         content: "";
         z-index: -2;
+        pointer-events: none;
       }
 
       .nav_depth2 {
