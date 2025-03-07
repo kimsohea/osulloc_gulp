@@ -1,0 +1,76 @@
+<header>
+  <h1 class="header_logo">
+    <a href="javascript:void(0);" class="logo">
+      <img src="https://image.osulloc.com/kr/ko/static/v2/images/common/logo.png" class="logo_img" />
+    </a>
+  </h1>
+  <button type="button" class="open_m_nav">
+    <span class="line"></span>
+  </button>
+  <nav class="nav">
+    {% if header_menu %}
+    <ul class="nav_depth1">
+      {% for item in header_menu %}
+      <li class="list_depth1 {% if item.hasChild %}has_child{% endif %}">
+        <a href="javascript:void(0);" class="nav_link link_depth1">{{ item.depth1 }}</a>
+        {% if item.hasChild %}
+        <ul class="nav_depth2">
+          {% for child1 in item.children %}
+          <li class="list_depth2">
+            <a href="javascript:void(0);" class="nav_link link_depth2">{{child1.depth2}}</a>
+            {% if child1.children %}
+            <ul class="nav_depth3">
+              {% for child3 in child1.children %}
+              <li class="list_depth3">
+                <a href="javascript:void(0);" class="nav_link link_depth3">{{child3}}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </nav>
+  <ul class="nav_utility">
+    <li class="util_icon">
+      <button type="button" class="btn_open_search">검색 열기</button>
+    </li>
+    <li class="util_icon">
+      <a href="javascript:void(0);" class="go_cart"></a>
+    </li>
+    <li>
+      <a href="javascript:void(0);" class="util_link">출석체크</a>
+    </li>
+    <li>
+      <a href="javascript:void(0);" class="util_link">로그인</a>
+    </li>
+  </ul>
+  <section class="search_area">
+    <button class="search_close"></button>
+    <form name="search" class="search_top">
+      <input type="text" name="search" placeholder="검색어를 입력해주세요." />
+      <input type="submit" value="Submit" />
+    </form>
+    <div class="left">
+      <h3>인기 검색어</h3>
+      <ol>
+        {% set searchStr = ["루이보스","텀블러","캐모마일","차의
+        정원","말차","녹차","히비스커스","블랙티","3입","케이크"] %} {% for item in searchStr %}
+        <li><a href="javascript:void(0);">{{item}}</a></li>
+        {% endfor %}
+      </ol>
+    </div>
+    <div class="right">
+      <h3>최근 검색어</h3>
+      <ol>
+        <li>최근 검색어가 없습니다</li>
+      </ol>
+      <button type="button" class="search_remove">전체삭제</button>
+    </div>
+  </section>
+</header>
