@@ -18,9 +18,11 @@
     />
 
     <!-- style sheet -->
+    <link rel="stylesheet" href="./libs/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/styles.min.css" />
 
     <!-- script -->
+    <script src="./libs/swiper/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
     <title>Document</title>
   </head>
@@ -221,9 +223,18 @@
 </header>
 
     <main>
-      <section>
-        <p>test save</p>
-      </section>
+      <section class="swiper banner">
+  <ul class="swiper-wrapper">
+    <li class="swiper-slide">Slide 1</li>
+    <li class="swiper-slide">Slide 2</li>
+    <li class="swiper-slide">Slide 3</li>
+  </ul>
+  <button type="button" class="swiper-pagination"></button>
+  <button type="button" class="swiper-button-next"></button>
+  <button type="button" class="swiper-button-prev"></button>
+</section>
+
+      <section>section test</section>
     </main>
     <footer></footer>
   </body>
