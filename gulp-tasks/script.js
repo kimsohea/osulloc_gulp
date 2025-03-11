@@ -1,6 +1,6 @@
-const gulp = require("gulp");
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify");
+import gulp from "gulp";
+import concat from "gulp-concat";
+import uglify from "gulp-uglify";
 
 // 자바스크립트 파일을 병합
 const script = () => {
@@ -11,4 +11,4 @@ const script = () => {
     .pipe(gulp.dest("dist/js")); // dist 폴더에 병합한 파일 생성
 };
 
-module.exports = script; // 함수 내보내기
+export default script; // 함수 내보내기

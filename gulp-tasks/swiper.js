@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+import gulp from "gulp";
 
 // Swiper 파일 복사
 const copy_swiper = () => {
@@ -7,4 +7,4 @@ const copy_swiper = () => {
     .pipe(gulp.dest("dist/libs/swiper/")); // 원하는 폴더로 복사
 };
 
-module.exports = copy_swiper; // 함수 내보내기
+export default copy_swiper; // 함수 내보내기

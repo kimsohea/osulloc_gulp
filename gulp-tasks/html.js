@@ -1,13 +1,16 @@
-const fs = require("fs");
-const gulp = require("gulp");
-const path = require("path");
-const data = require("gulp-data");
-const swig = require("gulp-swig");
-const fileinclude = require("gulp-file-include");
+import fs from "fs";
+import gulp from "gulp";
+import path from "path";
+import data from "gulp-data";
+import swig from "gulp-swig";
+import concat from "gulp-concat";
+import fileinclude from "gulp-file-include";
 
-const menuJsonPath = path.join(__dirname, "../src/data/header_menu.json"); // JSON 파일 경로
+const __dirname = path.resolve();
 
-function merge_html() {
+const menuJsonPath = path.join(__dirname, "./src/data/header_menu.json"); // JSON 파일 경로
+
+const merge_html = () => {
   const jsonData = JSON.parse(fs.readFileSync(menuJsonPath, "utf8"));
 
   return gulp
@@ -21,7 +24,8 @@ function merge_html() {
     )
     .pipe(data(() => ({ header_menu: jsonData }))) // ✅ JSON을 menu 변수로 전달
     .pipe(swig({ defaults: { cache: false } }))
+    .pipe(concat("index.html"))
     .pipe(gulp.dest("dist/"));
-}
+};
 
-module.exports = merge_html;
+export default merge_html;
