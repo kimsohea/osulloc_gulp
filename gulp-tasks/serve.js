@@ -4,6 +4,7 @@ const styles = require("./styles");
 const script = require("./script");
 const copy_swiper = require("./swiper");
 const merge_html = require("./html");
+const image = require("./images");
 const browserSync = require("browser-sync").create();
 
 const serve = () => {
@@ -25,6 +26,8 @@ const serve = () => {
   gulp.watch("src/js/**/*.js", gulp.series([script, copy_swiper])).on("change", browserSync.reload); // Script 파일 변경 시 리로드
 
   gulp.watch("dist/**/*.css").on("change", browserSync.reload); // CSS 파일 변경 시 리로드
+
+  gulp.watch("src/img/**/*.{png,jpeg,gif}", gulp.series(image)).on("change", browserSync.reload);
 };
 
-module.exports = serve; // 함수 내보내기
+module.exports = serve;
