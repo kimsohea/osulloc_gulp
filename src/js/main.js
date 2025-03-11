@@ -29,4 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   searchBtn.addEventListener("click", () => searchFunc(true));
   searchClose.addEventListener("click", () => searchFunc(false));
+
+  const bnrSwiper = new Swiper(".banner", {
+    slidesPerView: 1,
+    loop: true,
+    loop: true,
+    pagination: { el: ".swiper-pagination", clickable: true },
+    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+  });
 });
