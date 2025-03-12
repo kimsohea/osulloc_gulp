@@ -1,6 +1,122 @@
+@use "mixin_function.scss" as styles;
+
 .banner {
+  position: relative;
+  width: 100%;
+  margin-bottom: 60px;
+
+  .event_link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  .bnr_txt {
+    li {
+      z-index: 5;
+      position: absolute;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      padding: 80px 85px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      pointer-events: none;
+      word-break: keep-all;
+
+      * {
+        display: block;
+        transform: translate3d(0, 15px, 0);
+        opacity: 0;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+      }
+
+      &.active {
+        * {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+      }
+    }
+
+    .txt_duration {
+      font-size: 13px;
+      margin-bottom: 1em;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.6);
+      line-height: 1;
+    }
+
+    .txt_title {
+      font-size: 27.6px;
+      margin-bottom: 0.3em;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.53;
+    }
+
+    .txt_desc {
+      font-size: 13px;
+      margin-bottom: 2.2em;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+  }
+
   .swiper-slide {
     width: 100%;
-    height: 700px;
+    height: 50vh;
+    min-height: 480px;
+
+    img {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 17.5px;
+    height: 31.5px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .swiper-button-prev {
+    background-image: styles.icon(swiper_left);
+  }
+  .swiper-button-next {
+    background-image: styles.icon(swiper_right);
+  }
+
+  &.pc {
+    .pc_img {
+      display: block;
+    }
+    .mo_img {
+      display: none;
+    }
+  }
+
+  &.mo {
+    .pc_img {
+      display: none;
+    }
+    .mo_img {
+      display: block;
+    }
   }
 }

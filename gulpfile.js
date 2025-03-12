@@ -7,6 +7,7 @@ import processImages from "./gulp-tasks/images.js";
 
 // 이미지 최적화 작업
 gulp.task("image", processImages);
+
 // 기본 작업 (서버 실행)
 gulp.task("serve", gulp.series(processImages, serve));
 

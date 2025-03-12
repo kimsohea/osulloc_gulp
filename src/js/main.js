@@ -30,11 +30,46 @@ document.addEventListener("DOMContentLoaded", () => {
   searchBtn.addEventListener("click", () => searchFunc(true));
   searchClose.addEventListener("click", () => searchFunc(false));
 
+  const bnrTxt = document.querySelectorAll(".bnr_txt li");
   const bnrSwiper = new Swiper(".banner", {
     slidesPerView: 1,
     loop: true,
-    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
     pagination: { el: ".swiper-pagination", clickable: true },
     navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+    on: {
+      slideChange: (s) => {
+        bnrTxt.forEach((item, idx) => {
+          if (idx === s.realIndex) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+      },
+    },
+  });
+
+  const banner = document.querySelector(".banner");
+  const winWidth = window.innerWidth;
+
+  if (winWidth > 750) {
+    banner.classList.add("pc");
+    banner.classList.remove("mo");
+  } else {
+    banner.classList.add("mo");
+    banner.classList.remove("pc");
+  }
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 750) {
+      banner.classList.add("pc");
+      banner.classList.remove("mo");
+    } else {
+      banner.classList.remove("pc");
+      banner.classList.add("mo");
+    }
   });
 });

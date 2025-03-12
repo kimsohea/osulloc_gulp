@@ -14,7 +14,7 @@ const merge_html = () => {
   const jsonData = JSON.parse(fs.readFileSync(menuJsonPath, "utf8"));
 
   return gulp
-    .src("src/**/*.html")
+    .src(["src/*.html", "!src/html/**"]) // 메인 HTML 파일만 처리하고 include용 파일은 제외
     .pipe(
       fileinclude({
         prefix: "@@",
