@@ -30,7 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
   searchBtn.addEventListener("click", () => searchFunc(true));
   searchClose.addEventListener("click", () => searchFunc(false));
 
-  const bnrTxt = document.querySelectorAll(".bnr_txt li");
+  const evtBtn = document.querySelector(".event_link");
+  let evtBtnFlg = false;
+
   const bnrSwiper = new Swiper(".banner", {
     slidesPerView: 1,
     loop: true,
@@ -43,12 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
     on: {
       init: (s) => {
         s.slides[s.activeIndex].children[0].children[2].classList.add("active");
+        setTimeout(() => evtBtn.classList.add("active"), 10);
       },
       slideChangeTransitionEnd: (s) => {
+        evtBtn.classList.add("active");
         s.slides.forEach((slide) => {
           slide.children[0].children[2].classList.remove("active");
         });
         s.slides[s.activeIndex].children[0].children[2].classList.add("active");
+      },
+      beforeTransitionStart: () => {
+        evtBtn.classList.remove("active");
+      },
+      transitionEnd: () => {
+        evtBtn.classList.add("active");
       },
     },
   });
