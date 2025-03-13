@@ -34,20 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const bnrSwiper = new Swiper(".banner", {
     slidesPerView: 1,
     loop: true,
-    autoplay: {
-      delay: 5000,
-    },
+    parallax: true,
+    //autoplay: {
+    //  delay: 5000,
+    //},
     pagination: { el: ".swiper-pagination", clickable: true },
     navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
     on: {
-      slideChange: (s) => {
-        bnrTxt.forEach((item, idx) => {
-          if (idx === s.realIndex) {
-            item.classList.add("active");
-          } else {
-            item.classList.remove("active");
-          }
+      init: (s) => {
+        s.slides[s.activeIndex].children[0].children[2].classList.add("active");
+      },
+      slideChangeTransitionEnd: (s) => {
+        s.slides.forEach((slide) => {
+          slide.children[0].children[2].classList.remove("active");
         });
+        s.slides[s.activeIndex].children[0].children[2].classList.add("active");
       },
     },
   });
