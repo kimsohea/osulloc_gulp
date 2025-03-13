@@ -9,7 +9,7 @@ const sassCompiler = gulpSass(sass);
 
 const styles = () => {
   return gulp
-    .src("src/scss/**/*.scss") // SCSS 파일 경로
+    .src("src/scss/style.scss") // SCSS 파일 한개로 수정
     .pipe(sassCompiler().on("error", sassCompiler.logError)) // SCSS 컴파일
     .pipe(concat("styles.min.css")) // CSS 파일 하나로 합치기
     .pipe(cleanCSS()) // CSS 압축
