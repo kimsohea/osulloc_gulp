@@ -1,86 +1,16 @@
+import { navFunction, searchFunction } from "./navi.js";
+import { bnrSwiper, bannerSize } from "./banner.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-  const navMenu = document.querySelectorAll(".nav_depth1 .list_depth1");
+  // 네비 클릭 이벤트
+  navFunction();
 
-  navMenu.forEach((item, idx) => {
-    item.addEventListener("mouseenter", function () {
-      this.classList.add("active");
-    });
-    item.addEventListener("mouseleave", function () {
-      this.classList.remove("active");
-    });
-  });
+  // 검색 버튼 클릭 이벤트
+  searchFunction();
 
-  const searchBtn = document.querySelector(".btn_open_search");
-  const searchClose = document.querySelector(".search_close");
-  const searchArea = document.querySelector(".search_area");
-  const headerDim = document.querySelector("header");
-  let searchFlg = false;
-  const searchFunc = (flg) => {
-    if (flg) {
-      searchFlg = flg;
-      searchArea.classList.add("active");
-      headerDim.classList.add("dimed");
-    } else {
-      searchFlg = flg;
-      searchArea.classList.remove("active");
-      headerDim.classList.remove("dimed");
-    }
-  };
+  // 배너 슬라이더
+  bnrSwiper;
 
-  searchBtn.addEventListener("click", () => searchFunc(true));
-  searchClose.addEventListener("click", () => searchFunc(false));
-
-  const evtBtn = document.querySelector(".event_link");
-  let evtBtnFlg = false;
-
-  const bnrSwiper = new Swiper(".banner", {
-    slidesPerView: 1,
-    loop: true,
-    parallax: true,
-    //autoplay: {
-    //  delay: 5000,
-    //},
-    pagination: { el: ".swiper-pagination", clickable: true },
-    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-    on: {
-      init: (s) => {
-        s.slides[s.activeIndex].children[0].children[2].classList.add("active");
-        setTimeout(() => evtBtn.classList.add("active"), 10);
-      },
-      slideChangeTransitionEnd: (s) => {
-        evtBtn.classList.add("active");
-        s.slides.forEach((slide) => {
-          slide.children[0].children[2].classList.remove("active");
-        });
-        s.slides[s.activeIndex].children[0].children[2].classList.add("active");
-      },
-      beforeTransitionStart: () => {
-        evtBtn.classList.remove("active");
-      },
-      transitionEnd: () => {
-        evtBtn.classList.add("active");
-      },
-    },
-  });
-
-  const banner = document.querySelector(".banner");
-  const winWidth = window.innerWidth;
-
-  if (winWidth > 750) {
-    banner.classList.add("pc");
-    banner.classList.remove("mo");
-  } else {
-    banner.classList.add("mo");
-    banner.classList.remove("pc");
-  }
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 750) {
-      banner.classList.add("pc");
-      banner.classList.remove("mo");
-    } else {
-      banner.classList.remove("pc");
-      banner.classList.add("mo");
-    }
-  });
+  // 배너 크기 조정
+  bannerSize();
 });
