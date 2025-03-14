@@ -43,11 +43,11 @@ const bannerFunc = (flg) => {
 };
 
 export function bannerSize() {
-  let winFlg = winWidth > 750 ? true : false;
+  let winFlg = winWidth > 768 ? true : false;
   bannerFunc(winFlg);
 
   window.addEventListener("resize", () => {
-    let winFlgIn = window.innerWidth > 750 ? true : false;
+    let winFlgIn = window.innerWidth > 768 ? true : false;
     bannerFunc(winFlgIn);
   });
 }
